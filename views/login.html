@@ -1,4 +1,9 @@
 {{template "header"}}
+<div class="navbar navbar-default">
+    <div class="container">
+        {{template "navbar" .}}
+    </div>
+</div>
 <div class="container" style="width: 500px">
     <form role="form" method="POST" action="/login">
         <div class="form-group">

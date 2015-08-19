@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
 )
@@ -25,7 +24,7 @@ func (c *LoginController) Post() {
 	username := c.Input().Get("username")
 	password := c.Input().Get("password")
 	autologin := c.Input().Get("autologin") == "on"
-	fmt.Println(username, password, autologin)
+
 	if beego.AppConfig.String("username") ==
 		username && beego.AppConfig.String("password") == password {
 		maxAge := 0
@@ -36,8 +35,10 @@ func (c *LoginController) Post() {
 		c.Ctx.SetCookie("password", password, maxAge, "/")
 		c.Redirect("/", 301)
 		return
+	} else {
+		c.Redirect("/login", 301)
+		return
 	}
-	// 登陆待定
 }
 
 func checkAccount(ctx *context.Context) bool {
