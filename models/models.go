@@ -17,7 +17,7 @@ import (
 // 	_DRIVER   = "sqlite3"
 // )
 const (
-	_DB_NAME = "blog:blog@tcp(192.168.20.10:3306)/blog?charset=utf8"
+	_DB_NAME = "blog:blog@tcp(localhost:3306)/blog?charset=utf8"
 	_DRIVER  = "mysql"
 )
 
